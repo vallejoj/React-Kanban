@@ -3,7 +3,7 @@ import './App.css';
 import {connect} from 'react-redux'
 import {loadTodos} from '../actions/index.js'
 import NewCard from './NewCard';
-import Columns from '../components/Columns.js';
+
 import TodoList from '../components/TodoList.js';
 
 class App extends Component {
@@ -14,9 +14,27 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-      <Columns todos = {this.props.todos}/>
+      <div className="container-fluid">
+  <NewCard/>
+          <div className="row">
+              <h1>TODO</h1>
+                    <div className="col-md-4">
+                    <TodoList todos = {this.props.todos} progress = 'queue'/>
+                    </div>
+
+                    <div className="col-md-4">
+                      <h1>DOING</h1>
+          <TodoList todos = {this.props.todos} progress = 'progress'/>
+                    </div>
+
+                    <div className="col-md-4">
+                      <h1>DONE</h1>
+
+                    </div>
+
+
     </div>
+  </div>
     );
   }
 }

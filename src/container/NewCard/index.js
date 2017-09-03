@@ -3,37 +3,42 @@ import { connect } from 'react-redux';
 import { addCard } from '../../actions';
 
 class NewCard extends Component {
-  constructor(){
-    super();
-    this.state = {
-      userInput: ''
-    }
-  }
 
-  submitCard() {
-    console.log('userInput:',this.state.userInput)
-    this.props.addCard(this.state.userInput)
-  }
 
   handleNewTitleInput(e){
     this.setState({
-      userInput: e.target.value
+      title: e.target.value
     })
   }
   handleNewDescriptionInput(e){
     this.setState({
-      userInput: e.target.value
+      description: e.target.value
     })
   }
-
+  submitCard(evt) {
+     evt.preventDefault();
+    console.log('userInput:',this.state)
+    let newCard = {
+      title : this.state.title,
+      description : this.state.description
+    };
+    console.log('newcard:',newCard)
+    this.props.addCard(newCard);
+  }
   render(){
 
     return (
       <div>
         <input
           type="text"
-          placeholder="name"
+          placeholder="title"
           onChange={this.handleNewTitleInput.bind(this)}
+        />
+        <br/>
+        <input
+          type="text"
+          placeholder="description"
+          onChange={this.handleNewDescriptionInput.bind(this)}
         />
         <button onClick={this.submitCard.bind(this)}>Submit</button>
       </div>
@@ -44,9 +49,7 @@ class NewCard extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     addCard: (text) => {
-    // ^-- name of the method in our this.props object
       dispatch(addCard(text))
-                // ^--- action function imported above
     }
   }
 }

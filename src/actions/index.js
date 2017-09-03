@@ -29,8 +29,21 @@ export function getTodos (){
   return new Promise ((resolve, reject) => {
     setTimeout(() => {
       resolve ({
-        todos: ['go running', 'get stuff', 'max out', 'have fun']
+        todos: [{
+          title:"running outside",
+          description:"boring",
+          priority:"low",
+          progress:"queue"
+        },
+        {
+          title:"Saving the world!!!! ",
+          description:"Awesome!",
+          priority:"high",
+          progress:"progress"
+        }
+      ]
+
       });
-    }, 1000)
+    }, 100)
   })
 }

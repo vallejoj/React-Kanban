@@ -2,10 +2,12 @@ import React from 'react';
 import ShiftCardRight from './ShiftCardRight.js'
 
 
-const Card = ({ name }) => {
+const Card = ({ name,description }) => {
   return (
-        <div className="col-md-1">
+        <div className="col-md-3">
       { name }
+      <br/>
+      {description}
       <button>Right</button>
     </div>
   )
