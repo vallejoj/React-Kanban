@@ -20,7 +20,7 @@ ReactDOM.render(
   <Provider store={store}>
   <App />
  </Provider> ,
-  document.querySelector('.jumbotron'));
+  document.querySelector('.container'));
 
 
 registerServiceWorker();

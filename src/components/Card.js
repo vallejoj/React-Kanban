@@ -4,11 +4,11 @@ import ShiftCardRight from './ShiftCardRight.js'
 
 const Card = ({ name,description }) => {
   return (
-        <div className="col-md-3">
+        <div className="col-md-3 card">
       { name }
       <br/>
       {description}
-      <button>Right</button>
+    
     </div>
   )
 }

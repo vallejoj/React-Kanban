@@ -1,18 +1,40 @@
-.container-fluid{
+.container{
   background-color: white;
+height:10000px;
+
 }
+.jumbotron{
+font-family: 'Shadows Into Light', cursive;
+
+}
+  .row{
+
+  }
+.left-column{
+  border-top: 0.1em solid transparent;
+  border-image: url('http://emptyeasel.com/wp-content/uploads/2012/11/creatingtexture2-carrielewis.jpg') 27 0 0 0 stretch round;border-color: black;
+border-right: 0.1em solid ;
+}
+.right-column{
+  border: 0.2em solid transparent;
+   border-image: url('http://emptyeasel.com/wp-content/uploads/2012/11/creatingtexture2-carrielewis.jpg') 0 27 27 27 round stretch;
+}
+
 .col-md-4{
-
+height: 10000px;
 
 }
-h1{
-  margin-left: 150px;
+h3{
+  font-size: 15px;
+  font-color:grey;
+margin-left: 100px;
 }
 .col-md-3{
-    align-content: center;
-    width:350px;
-    height:150px;
+
+    width:250px;
+    height:100px;
     border-color: black;
-    border: solid;
+    border-image: url('http://emptyeasel.com/wp-content/uploads/2012/11/creatingtexture2-carrielewis.jpg') 27 0 0 0 stretch round;border-color: black;
+
 
 }

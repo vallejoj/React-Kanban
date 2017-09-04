@@ -15,10 +15,6 @@ const TodoList = ( {todos, progress} ) => {
         )
       })
     }
-
-
-
-
   </ul>
   )
 }
