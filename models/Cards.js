@@ -5,13 +5,16 @@ module.exports = function(sequelize, DataTypes) {
       description: DataTypes.STRING,
     priority: DataTypes.STRING,
     progress: DataTypes.STRING,
-    created_at: Sequelize.DATE,
-  }, {
+
+
+  },
+
+   {
     classMethods: {
       associate: function(models) {
       }
     }
   });
 
-  return Gallery;
+  return Card;
 };
