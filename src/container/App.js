@@ -3,26 +3,29 @@ import './App.css';
 import {connect} from 'react-redux'
 import {loadTodos} from '../actions/index.js'
 import NewCard from './NewCard';
-
+import ModalExample from '../components/Modal';
 import TodoList from '../components/TodoList.js';
 
 class App extends Component {
+
   componentWillMount() {
     console.log("hey props", this.props)
     this.props.loadTodos();
   }
 
+
+
   render() {
     return (
       <div className="jumbotron">
-        <NewCard/>
-
+        <ModalExample/>
         <div className="row">
 
 
           <div className="col-md-4 left-column">
             <h3>To-do</h3>
             <TodoList todos={this.props.todos} progress='queue'/>
+
           </div>
 
 
@@ -32,7 +35,7 @@ class App extends Component {
           </div>
 
           <div className="col-md-4 right-column">
-            <h3>done</h3>
+            <h3>Done</h3>
             <TodoList todos={this.props.todos} progress='done'/>
           </div>
 

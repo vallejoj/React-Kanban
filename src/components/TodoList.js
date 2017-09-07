@@ -1,21 +1,24 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Card from './Card.js';
 
-const TodoList = ( {todos, progress} ) => {
-  console.log('whyyyy',todos)
+
+class TodoList extends Component {
+render()
+{
   return (
-  <ul>
+  <ul className = "left">
     {
-      todos.filter((todo)=>{
-        return todo.progress === progress
+      this.props.todos.filter((todo)=>{
+        return this.props.progress === todo.progress
       })
       .map((todo)=>{
+        console.log("inspect entire",todo)
         return(
-          <Card title={todo.title} description={todo.description}/>
+          <Card key= {todo.id} id= {todo.id} title={todo.title} description={todo.description} progress={todo.progress}/>
         )
       })
     }
   </ul>
   )
-}
+}}
 export default TodoList

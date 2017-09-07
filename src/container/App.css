@@ -1,40 +1,71 @@
-.container{
+.container {
+  background-color: #ECEEEF;
+}
+
+.jumbotron {
+  font-family: 'Shadows Into Light', cursive;
   background-color: white;
-height:10000px;
-
 }
-.jumbotron{
-font-family: 'Shadows Into Light', cursive;
-
+h2{
+  font-size: 16px;
 }
-  .row{
-
-  }
-.left-column{
-  border-top: 0.1em solid transparent;
-  border-image: url('http://emptyeasel.com/wp-content/uploads/2012/11/creatingtexture2-carrielewis.jpg') 27 0 0 0 stretch round;border-color: black;
-border-right: 0.1em solid ;
+.col-md-3.card{
+  height: 100px;
 }
-.right-column{
-  border: 0.2em solid transparent;
-   border-image: url('http://emptyeasel.com/wp-content/uploads/2012/11/creatingtexture2-carrielewis.jpg') 0 27 27 27 round stretch;
+.left-column>.left>.card {
+  background-color: #F16361;
+}
+.right-column>.left>.card {
+  background-color: #94C73E;
 }
 
-.col-md-4{
-height: 10000px;
+.center-column>.left>.card {
+  background-color: #5BC7E1;
+}
+
+.input-row {
+  width: 100%;
 
 }
-h3{
+
+.left-column {
+}
+
+.right-column {
+}
+
+.col-md-4 {
+
+}
+
+h3 {
   font-size: 15px;
-  font-color:grey;
-margin-left: 100px;
+  font-color: grey;
+  margin-left: 100px;
 }
-.col-md-3{
 
-    width:250px;
-    height:100px;
-    border-color: black;
-    border-image: url('http://emptyeasel.com/wp-content/uploads/2012/11/creatingtexture2-carrielewis.jpg') 27 0 0 0 stretch round;border-color: black;
+.col-md-3 {
+  width: 250px;
+  height: 100px;
+}
+.modal-example {
+  margin-top: -37px;
+    font-family: 'Shadows Into Light', cursive;
+}
+.modalStyle{
+  position: 'absolute';
+  width: 400;
+  transform: `translate(-${top}%, -${left}%)`;
+  border: '1px solid #e5e5e5';
+  backgroundColor: 'white';
+  boxShadow: '0 5px 15px rgba(0,0,0,.5)';
+  padding: 20;
+  margin: 200;
 
-
+}
+input{
+  font-family: 'Shadows Into Light', cursive;
+}
+button{
+  font-family: 'Shadows Into Light', cursive;
 }
