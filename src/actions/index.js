@@ -1,8 +1,10 @@
-// import { remote, endpoint, fetcher } from 'redux-fetch-api';
+import querystring from "querystring";
+import axios from "axios";
 
 export const ADD_CARD = 'ADD_CARD';
 export const LOAD_TODOS = 'LOAD_TODOS';
 export const CHANGE_PROGRESS_STATUS_TO_DOING = 'CHANGE_PROGRESS_STATUS_TO_DOING';
+
 
 export function addCard(text) {
   console.log('text',text)
@@ -19,45 +21,18 @@ console.log("check out my status",status)
     status: status,
     id:id
   }
-
   return  action
-
 }
 
 export const loadTodos = (todos) => {
   return (dispatch) => {
-    return getTodos()
-      .then( ({ todos }) => {
-        dispatch({
-          type: LOAD_TODOS,
-          todos: todos
-        })
+    axios.get("/cards")
+    .then((cards) => {
+      console.log('my cards',cards.data)
+      dispatch({
+        type: LOAD_TODOS,
+        cards: cards.data
       })
+    })
   }
-}
-
-
-export function getTodos (){
-  return new Promise ((resolve, reject) => {
-    setTimeout(() => {
-      resolve ({
-        todos: [{
-          title:"running outside",
-          description:"boring",
-          priority:"low",
-          progress:"queue",
-          id: "1"
-        },
-        {
-          title:"Saving the world!!!! ",
-          description:"Awesome!",
-          priority:"high",
-          progress:"progress",
-          id:"2"
-        }
-      ]
-
-      });
-    }, 100)
-  })
 }

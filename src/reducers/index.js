@@ -1,25 +1,22 @@
-import { combineReducers } from 'redux'
-import {
-  ADD_CARD,
-  LOAD_TODOS,
-  CHANGE_PROGRESS_STATUS_TO_DOING
-} from '../actions/index.js'
+import {combineReducers} from 'redux'
+import {ADD_CARD, LOAD_TODOS, CHANGE_PROGRESS_STATUS_TO_DOING} from '../actions/index.js'
 
 function todos(state = [], action) {
   switch (action.type) {
     case ADD_CARD:
       return [
-        ...state,action.text
+        ...state,
+        action.text
       ]
+
     case LOAD_TODOS:
-    return[
-      ...action.todos
-    ]
+      console.log('my action is the', action)
+      return action.cards;
+
     case CHANGE_PROGRESS_STATUS_TO_DOING:
-    console.log( "action:",action)
-    console.log("state:",state)
-      var newState = state.map( (item) => {
-        if (item.id === action.id ) {
+
+      var newState = state.map((item) => {
+        if (item.id === action.id) {
           console.log('we have found a mathchhh', item.id, action.id)
           item.progress = action.status
 
@@ -28,14 +25,12 @@ function todos(state = [], action) {
           return item
         }
       })
-      return newState
+    return newState
     default:
-    return state
+      return state
   }
 }
 
-const todoApp = combineReducers({
-  todos
-})
+const todoApp = combineReducers({todos})
 
 export default todoApp

@@ -2,14 +2,12 @@ import React, {Component} from 'react';
 import './App.css';
 import {connect} from 'react-redux'
 import {loadTodos} from '../actions/index.js'
-import NewCard from './NewCard';
+
 import ModalExample from '../components/Modal';
 import TodoList from '../components/TodoList.js';
 
 class App extends Component {
-
   componentWillMount() {
-    console.log("hey props", this.props)
     this.props.loadTodos();
   }
 
@@ -46,16 +44,22 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {todos: state.todos}
+  console.log('my state is', state)
+  return {
+    todos: state.todos
+  }
 }
 const mapDispatchToProps = (dispatch) => {
+  console.log('my dispatch is', dispatch)
   return {
-    loadTodos: () => {
-      dispatch(loadTodos());
+    loadTodos: (todos) => {
+      dispatch(loadTodos(todos));
     }
   }
 }
 
-const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App)
+const ConnectedApp = connect(
+  mapStateToProps,
+  mapDispatchToProps)(App)
 
 export default ConnectedApp;

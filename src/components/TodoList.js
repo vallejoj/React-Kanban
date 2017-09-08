@@ -5,10 +5,12 @@ import Card from './Card.js';
 class TodoList extends Component {
 render()
 {
+
   return (
   <ul className = "left">
     {
       this.props.todos.filter((todo)=>{
+
         return this.props.progress === todo.progress
       })
       .map((todo)=>{

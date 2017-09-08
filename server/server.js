@@ -3,19 +3,35 @@ const  app = express();
 
 const db = require ('../models');
 const bp = require('body-parser');
+const Card = require('../models').Card
 const PORT = process.env.PORT || 8080;
-app.use(bp.urlencoded());
+app.use(bp.urlencoded( ));
 
-app.get('/', function (req, res) {
-  res.send('hello world')
+app.get('/cards', function (req, res){
+
+  Card.findAll()
+  .then((cards) =>{
+    console.log("testing out get request",cards);
+    res.json(cards)
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
 });
 
-app.get('/kanban', function (req, res) {
-
-
-    res.send('hello worlds')
-
-});
+app.post('/new', function(req,res){
+  Card.create({
+    title: req.body.title,
+    description: req.body.description,
+    priority: req.body.priority,
+    progress: req.body.progress
+  }).then((cards)=>{
+    res.end()
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+})
 
 
 const server = app.listen(PORT, () =>{
