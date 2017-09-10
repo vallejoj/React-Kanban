@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addCard, loadTodos } from '../../actions';
+import { editCard, loadTodos } from '../actions';
 
-class NewCard extends Component {
+class EditCard extends Component {
   constructor(props){
         super(props)
         this.state = {
@@ -13,25 +13,25 @@ class NewCard extends Component {
         }
 }
 
-  handleNewTitleInput(e){
+  handleEditTitleInput(e){
     this.setState({
       title: e.target.value
     })
   }
 
-  handleNewDescriptionInput(e){
+  handleEditDescriptionInput(e){
     this.setState({
       description: e.target.value
     })
   }
 
-  handleNewProgressInput(e){
+  handleEditProgressInput(e){
     this.setState({
       progress: e.target.value
     })
   }
 
-  handleNewPriorityInput(e){
+  handleEditPriorityInput(e){
     this.setState({
       priority: e.target.value
     })
@@ -40,42 +40,42 @@ class NewCard extends Component {
   submitCard(evt) {
      evt.preventDefault();
     console.log('userInput:',this.state)
-    let newCard = {
+    let edits = {
       title : this.state.title,
       description : this.state.description,
       priority : this.state.priority,
       progress: this.state.progress
 
     };
-    console.log('newcard:',newCard)
-    this.props.addCard(newCard);
+
+    this.props.editCard(edits, this.props.newid);
   }
 
   render(){
-
+       console.log('look at my new', this.props.newid)
     return (
       <div className = "input-row">
         <input
           type="text"
           placeholder="title"
-          onChange={this.handleNewTitleInput.bind(this)}
+          onChange={this.handleEditTitleInput.bind(this)}
         />
         <br/>
         <input
           type="text"
           placeholder="description"
-          onChange={this.handleNewDescriptionInput.bind(this)}
+          onChange={this.handleEditDescriptionInput.bind(this)}
         />
         <input
           type="text"
           placeholder="progress"
-          onChange={this.handleNewProgressInput.bind(this)}
+          onChange={this.handleEditProgressInput.bind(this)}
         />
 
         <input
           type="text"
           placeholder="priority"
-          onChange={this.handleNewPriorityInput.bind(this)}
+          onChange={this.handleEditPriorityInput.bind(this)}
         />
         <button onClick={this.submitCard.bind(this)}>Submit</button>
       </div>
@@ -83,20 +83,18 @@ class NewCard extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addCard: (text) => {
-      dispatch(addCard(text))
-    },
-    loadTodos: (cards) => {
-     dispatch(loadTodos(cards))
-   }
+const mapDispatchToProps = (dispatch) =>{
+  return{
+  editCard:(status,id)=>{
+      dispatch(editCard(status,id))
+    }
   }
 }
 
-const ConnectedNewUser = connect(
+
+const ConnectedEditUser = connect(
   null,
   mapDispatchToProps
-)(NewCard)
+)(EditCard)
 
-export default ConnectedNewUser;
+export default ConnectedEditUser;

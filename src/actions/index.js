@@ -3,32 +3,61 @@ import axios from "axios";
 
 export const ADD_CARD = 'ADD_CARD';
 export const LOAD_TODOS = 'LOAD_TODOS';
-export const CHANGE_PROGRESS_STATUS_TO_DOING = 'CHANGE_PROGRESS_STATUS_TO_DOING';
+export const EDIT_CARD = 'EDIT_CARD';
+export const DELETE_CARD = 'DELETE_CARD'
 
 
-export function addCard(text) {
-  console.log('text',text)
-  return {
-    type: ADD_CARD,
-      text:text
-       }
-}
 
-export function changeProgressStatusToDoing(status,id){
-console.log("check out my status",status)
-  const action= {
-    type: CHANGE_PROGRESS_STATUS_TO_DOING ,
-    status: status,
-    id:id
+export const addCard = card => {
+  return (dispatch) => {
+    axios.post("/new", querystring.stringify(card))
+    .then((cards) => {
+      console.log('cardsssss', cards)
+      dispatch({
+        type: ADD_CARD,
+        cards: cards.data
+      })
+    })
   }
-  return  action
 }
+
+export const deleteCard = id =>{
+  return (dispatch)=>{
+    axios.delete(`/delete/${id}/edit`)
+    .then((cards) => {
+      dispatch({
+        type:DELETE_CARD,
+        cards:cards.data,
+        id:id
+      })
+    })
+  }
+}
+
+
+export const editCard= (edited, id) => {
+console.log('my id', id)
+console.log('edited',edited)
+let editID = parseInt(id,10);
+
+    return (dispatch) => {
+      axios.put(`/move/${editID}/edit`, querystring.stringify(edited))
+      .then((cards) => {
+        console.log('cards',cards)
+        dispatch({
+          type: EDIT_CARD,
+          cards:cards.data
+
+        });
+      });
+    };
+};
 
 export const loadTodos = (todos) => {
   return (dispatch) => {
     axios.get("/cards")
     .then((cards) => {
-      console.log('my cards',cards.data)
+
       dispatch({
         type: LOAD_TODOS,
         cards: cards.data

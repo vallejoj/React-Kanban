@@ -1,31 +1,26 @@
 import {combineReducers} from 'redux'
-import {ADD_CARD, LOAD_TODOS, CHANGE_PROGRESS_STATUS_TO_DOING} from '../actions/index.js'
+import {ADD_CARD, LOAD_TODOS, EDIT_CARD, DELETE_CARD} from '../actions/index.js'
 
 function todos(state = [], action) {
   switch (action.type) {
     case ADD_CARD:
+    console.log("action time!!!",action)
       return [
-        ...state,
-        action.text
+
+        ...action.cards
       ]
 
     case LOAD_TODOS:
-      console.log('my action is the', action)
       return action.cards;
 
-    case CHANGE_PROGRESS_STATUS_TO_DOING:
+    case DELETE_CARD:
+    let filter = state.filter(card => card.id !== parseInt(
+      action.id,10))
+      return filter
 
-      var newState = state.map((item) => {
-        if (item.id === action.id) {
-          console.log('we have found a mathchhh', item.id, action.id)
-          item.progress = action.status
 
-          return item
-        } else {
-          return item
-        }
-      })
-    return newState
+    case EDIT_CARD:
+      return action.cards
     default:
       return state
   }

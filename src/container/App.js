@@ -44,16 +44,14 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('my state is', state)
   return {
     todos: state.todos
   }
 }
 const mapDispatchToProps = (dispatch) => {
-  console.log('my dispatch is', dispatch)
   return {
-    loadTodos: (todos) => {
-      dispatch(loadTodos(todos));
+    loadTodos: () => {
+      dispatch(loadTodos());
     }
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import NewCard from '../container/NewCard'
+import EditCard from './EditCard'
 const createReactClass = require('create-react-class');
 
 const modalStyle = {
@@ -16,18 +16,17 @@ const backdropStyle = {
   opacity: 0.5
 };
 
-const ModalExample = createReactClass({
+const EditModal = createReactClass({
 
   getInitialState(){
     return { showModal: false };
   },
 
   render() {
-
     return (
       <div className='modal-example pull-right'>
         <Button onClick={this.open}>
-          New Task
+        Edit
         </Button>
 
 
@@ -39,7 +38,7 @@ const ModalExample = createReactClass({
           onHide={this.close}
         >
           <div className = "modalStyle" >
-               <NewCard/>
+               <EditCard newid={this.props.id}/>
           </div>
         </Modal>
       </div>
@@ -57,4 +56,4 @@ const ModalExample = createReactClass({
 
 
 
-export default ModalExample
+export default EditModal
