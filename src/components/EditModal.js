@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import EditCard from './EditCard'
+import Delete from './Delete.js'
 const createReactClass = require('create-react-class');
 
 const modalStyle = {
@@ -25,7 +26,7 @@ const EditModal = createReactClass({
   render() {
     return (
       <div className='modal-example pull-right'>
-        <Button onClick={this.open}>
+        <Button id = "edit-button" onClick={this.open}>
         Edit
         </Button>
 
@@ -38,7 +39,8 @@ const EditModal = createReactClass({
           onHide={this.close}
         >
           <div className = "modalStyle" >
-               <EditCard newid={this.props.id}/>
+               <EditCard newid={this.props.id} newTitle= {this.props.title} newDescription = {this.props.description}/>
+               <Delete id= {this.props.id} />
           </div>
         </Modal>
       </div>

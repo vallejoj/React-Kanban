@@ -52,33 +52,36 @@ class EditCard extends Component {
   }
 
   render(){
-       console.log('look at my new', this.props.newid)
+       console.log('look these props', this.props)
     return (
       <div className = "input-row">
         <input
           type="text"
-          placeholder="title"
+          placeholder={this.props.newTitle}
           onChange={this.handleEditTitleInput.bind(this)}
         />
         <br/>
         <input
           type="text"
-          placeholder="description"
+            placeholder={this.props.newDescription}
           onChange={this.handleEditDescriptionInput.bind(this)}
         />
-        <input
-          type="text"
-          placeholder="progress"
-          onChange={this.handleEditProgressInput.bind(this)}
-        />
 
-        <input
-          type="text"
-          placeholder="priority"
-          onChange={this.handleEditPriorityInput.bind(this)}
-        />
-        <button onClick={this.submitCard.bind(this)}>Submit</button>
-      </div>
+                <select onChange={this.handleEditProgressInput.bind(this)} >
+            <option value="queue">Queue</option>
+            <option value="progress">Progress</option>
+            <option value="done">Done</option>
+          </select>
+
+
+          <select onChange={this.handleEditPriorityInput.bind(this)} >
+      <option value="high">High</option>
+      <option value="medium">Medium</option>
+      <option value="low">Low</option>
+          </select>
+
+              <button onClick={this.submitCard.bind(this)}>Submit</button>
+        </div>
     )
   }
 }

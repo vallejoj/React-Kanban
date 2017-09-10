@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Delete from './Delete.js'
+
 import { connect } from 'react-redux';
 import {editCard} from '../actions/index.js'
 import EditModal from './EditModal.js'
@@ -34,11 +34,12 @@ render(){
   console.log("investigating", this.props)
   return (
    <div className="col-md-3 card" >
-     <button onClick={this.handleDone.bind(this)}>Done</button>
-     <button onClick={this.handleProgress.bind(this)}>Doing</button>
-          <button onClick={this.handleQueue.bind(this)}>Queue</button>
-            <Delete id= {this.props.id} />
-            <EditModal id = {this.props.id}/>
+
+      <EditModal id = {this.props.id} title= {this.props.title} description = {this.props.description}/>
+             <button id="done" onClick={this.handleDone.bind(this)}>Done</button>
+             <button id="progress" onClick={this.handleProgress.bind(this)}>Doing</button>
+             <button id="queue" onClick={this.handleQueue.bind(this)}>Queue</button>
+
       <h2>  Title:{this.props.title}</h2>
       <h2>  Description:{this.props.description}</h2>
       <h2>   {this.props.progress}</h2>

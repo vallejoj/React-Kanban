@@ -66,17 +66,19 @@ class NewCard extends Component {
           placeholder="description"
           onChange={this.handleNewDescriptionInput.bind(this)}
         />
-        <input
-          type="text"
-          placeholder="progress"
-          onChange={this.handleNewProgressInput.bind(this)}
-        />
+        <select onChange={this.handleNewProgressInput.bind(this)} >
+            <option value="queue">Queue</option>
+            <option value="progress">Progress</option>
+            <option value="done">Done</option>
+        </select>
 
-        <input
-          type="text"
-          placeholder="priority"
-          onChange={this.handleNewPriorityInput.bind(this)}
-        />
+
+        <select onChange={this.handleNewPriorityInput.bind(this)} >
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+        </select>
+
         <button onClick={this.submitCard.bind(this)}>Submit</button>
       </div>
     )

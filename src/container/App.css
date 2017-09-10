@@ -1,20 +1,44 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
 .container {
-  background-color: #ECEEEF;
+    font-family: 'Shadows Into Light', cursive;
+
+  width: 100%;
 }
 
-.jumbotron {
+.page-header{
   font-family: 'Shadows Into Light', cursive;
-  background-color: white;
+  color: white;
+  background-color: #4D525B;
+  height: 60px;
+  width: 100%;
+  margin-top: 0px;
 }
+
 h2{
   font-size: 16px;
 }
-.col-md-3.card{
-  height: 100px;
+
+select{
+  font-family: 'Shadows Into Light', cursive;
 }
+
+.col-md-3.card{
+  height: 200px;
+  border-radius: 0px;
+}
+
+#edit-button{
+  margin-top: 50px;
+}
+
 .left-column>.left>.card {
   background-color: #F16361;
 }
+
 .right-column>.left>.card {
   background-color: #94C73E;
 }
@@ -22,11 +46,16 @@ h2{
 .center-column>.left>.card {
   background-color: #5BC7E1;
 }
-
-.input-row {
-  width: 100%;
-
+.left-column>.left>.col-md-3>#queue{
+  display: none
 }
+.center-column>.left>.col-md-3>#progress{
+  display: none
+}
+.right-column>.left>.col-md-3>#done{
+  display: none
+}
+
 
 .left-column {
 }
@@ -41,7 +70,7 @@ h2{
 h3 {
   font-size: 15px;
   font-color: grey;
-  margin-left: 100px;
+  margin-left: 150px;
 }
 
 .col-md-3 {

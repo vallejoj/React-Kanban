@@ -16,7 +16,7 @@ const backdropStyle = {
   opacity: 0.5
 };
 
-const ModalExample = createReactClass({
+const AddModal = createReactClass({
 
   getInitialState(){
     return { showModal: false };
@@ -57,4 +57,4 @@ const ModalExample = createReactClass({
 
 
 
-export default ModalExample
+export default AddModal
