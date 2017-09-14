@@ -17,8 +17,10 @@ class App extends Component {
     return (
       <div className="body">
       <div className="page-header">
-        <h1>Kanban Board</h1>
+        <div className="head">
+        <h1 id= "title">Kanban Board</h1>
         <AddModal/>
+            </div>
             </div>
         <div className="container">
 

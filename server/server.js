@@ -27,6 +27,7 @@ app.post('/new', function(req, res) {
     console.log(err)
   })
 })
+
 app.delete('/delete/:id/edit', function(req, res) {
   Card.destroy({
     where: {

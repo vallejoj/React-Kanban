@@ -34,16 +34,16 @@ render(){
   console.log("investigating", this.props)
   return (
    <div className="col-md-3 card" >
-
-      <EditModal id = {this.props.id} title= {this.props.title} description = {this.props.description}/>
-             <button id="done" onClick={this.handleDone.bind(this)}>Done</button>
-             <button id="progress" onClick={this.handleProgress.bind(this)}>Doing</button>
-             <button id="queue" onClick={this.handleQueue.bind(this)}>Queue</button>
-
       <h2>  Title:{this.props.title}</h2>
       <h2>  Description:{this.props.description}</h2>
       <h2>   {this.props.progress}</h2>
+          <div className="btn-group">
+      <EditModal id = {this.props.id} title= {this.props.title} description = {this.props.description}/>
 
+     <button id="done" onClick={this.handleDone.bind(this)}>Done</button>
+     <button id="progress" onClick={this.handleProgress.bind(this)}>Doing</button>
+     <button id="queue" onClick={this.handleQueue.bind(this)}>Queue</button>
+</div>
     </div>
   )
 }

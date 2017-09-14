@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { editCard, loadTodos } from '../actions';
+import { editCard} from '../actions';
 
 class EditCard extends Component {
   constructor(props){

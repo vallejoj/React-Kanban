@@ -8,14 +8,24 @@ html, body {
 
   width: 100%;
 }
+.head{
 
+}
+
+#title{
+  margin-left: 124px;
+
+}
 .page-header{
   font-family: 'Shadows Into Light', cursive;
   color: white;
+  width: 50%;
   background-color: #4D525B;
   height: 60px;
   width: 100%;
   margin-top: 0px;
+  align-items: center;
+
 }
 
 h2{
@@ -27,7 +37,7 @@ select{
 }
 
 .col-md-3.card{
-  height: 200px;
+  height: 150px;
   border-radius: 0px;
 }
 
@@ -46,13 +56,13 @@ select{
 .center-column>.left>.card {
   background-color: #5BC7E1;
 }
-.left-column>.left>.col-md-3>#queue{
+.left-column>.left>.col-md-3>.btn-group>#queue{
   display: none
 }
-.center-column>.left>.col-md-3>#progress{
+.center-column>.left>.col-md-3>.btn-group>#progress{
   display: none
 }
-.right-column>.left>.col-md-3>#done{
+.right-column>.left>.col-md-3>.btn-group>#done{
   display: none
 }
 
@@ -72,14 +82,20 @@ h3 {
   font-color: grey;
   margin-left: 150px;
 }
-
+.fade{
+  position: absolute;
+  zIndex: 'auto';
+}
 .col-md-3 {
   width: 250px;
   height: 100px;
 }
-.modal-example {
+.modal {
   margin-top: -37px;
     font-family: 'Shadows Into Light', cursive;
+}
+modal{
+
 }
 .modalStyle{
   position: 'absolute';
@@ -90,11 +106,31 @@ h3 {
   boxShadow: '0 5px 15px rgba(0,0,0,.5)';
   padding: 20;
   margin: 200;
-
+ transition: width 2s;
 }
 input{
   font-family: 'Shadows Into Light', cursive;
 }
 button{
   font-family: 'Shadows Into Light', cursive;
+}
+.btn-group{
+  margin-top:-90px;
+}
+#done{
+  margin-left: 182px;
+  width:50px;
+}
+#progress{
+  margin-left: 182px;
+    width:50px;
+}
+#queue{
+  margin-left: 182px;
+    width:50px;
+}
+.modal-container{
+  margin-top: -38px;
+  margin-right: 133px;
+
 }

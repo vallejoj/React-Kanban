@@ -13,7 +13,8 @@ const backdropStyle = {
   ...modalStyle,
   zIndex: 'auto',
   backgroundColor: '#000',
-  opacity: 0.5
+  opacity: 1.5
+
 };
 
 const AddModal = createReactClass({
@@ -25,7 +26,8 @@ const AddModal = createReactClass({
   render() {
 
     return (
-      <div className='modal-example pull-right'>
+      <div className="modal-container col-12 col-md-auto  pull-right">
+      <div className='modal-example'>
         <Button onClick={this.open}>
           New Task
         </Button>
@@ -42,6 +44,7 @@ const AddModal = createReactClass({
                <NewCard/>
           </div>
         </Modal>
+      </div>
       </div>
     );
   },
